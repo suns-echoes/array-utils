@@ -14,10 +14,11 @@ import { intersect } from './intersect.js';
  */
 export function diff(left, right) {
 	if (!Array.isArray(left)) {
-		throw new TypeError('First argument is not an array');
+		throw new TypeError('"left" is not an array');
 	}
+
 	if (!Array.isArray(right)) {
-		throw new TypeError('Second argument is not an array');
+		throw new TypeError('"right" is not an array');
 	}
 
 	const common = intersect(left, right);

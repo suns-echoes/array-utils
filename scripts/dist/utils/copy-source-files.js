@@ -4,5 +4,6 @@ import { config } from '../config';
 
 
 export async function copySourceFiles() {
-	await copy(config.paths.src.input, config.paths.src.output);
+	await copy(config.paths.src.input, config.paths.src.output.esm);
+	await copy(config.paths.src.input, config.paths.src.output.cjs);
 }

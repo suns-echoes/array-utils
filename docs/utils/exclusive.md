@@ -1,7 +1,9 @@
 Exclusive
 =========
 
-Method returns new array containing items exclusive to all input arrays.
+### `exclusive`
+
+Method returns new array containing non-intersecting items from input arrays.
 
 Note: *This method takes at least two arrays.*
 
@@ -10,24 +12,25 @@ Usage
 -----
 
 ```js
-const result = ArrayUtils.exclusive(a, b, c);
+const result = ArrayUtils.exclusive(...arrays);
 ```
 
 
 ### Arguments
 
-* `<...array>` `arrays` - input arrays.
+* **`arrays`**: *`...array`* - input arrays
 
 
 ### Returns
 
-* `<array>` - resulting array.
+* *`array`* - resulting array
 
 
 Example
 -------
 
 ```js
+// Get unique elements that are not duplicated between arrays:
 const a = [1, 2, 3];
 const b = [2, 4, 6];
 const c = [3, 5, 7];

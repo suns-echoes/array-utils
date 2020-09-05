@@ -1,7 +1,9 @@
 union
 =====
 
-Method returns new array containing unique items from all input arrays.
+### `union`
+
+Method returns new array containing items from input arrays but with no duplicate values.
 
 Note: *This method takes at least two arrays.*
 
@@ -10,24 +12,25 @@ Usage
 -----
 
 ```js
-const result = ArrayUtils.union(a, b, c);
+const result = ArrayUtils.union(...arrays);
 ```
 
 
 ### Arguments
 
-* `<...array>` `arrays` - input arrays.
+* **`array`**: *`...array`* - input arrays
 
 
 ### Returns
 
-* `<array>` - resulting array.
+* *`array`* - resulting array
 
 
 Example
 -------
 
 ```js
+// Get items from all arrays:
 const a = [1, 2, 3];
 const b = [2, 3, 4];
 const c = [3, 4, 5];

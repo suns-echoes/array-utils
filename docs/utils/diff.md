@@ -1,5 +1,7 @@
-Diff
-====
+Difference between two arrays
+=============================
+
+### `diff`
 
 Method returns differences between arrays.
 
@@ -14,22 +16,23 @@ const differences = ArrayUtils.diff(left, right);
 
 ### Arguments
 
-* `<array>` `left` - first array;
-* `<array>` `right` - second array.
+* **`left`**: *`array`* - first array
+* **`right`**: *`array`* - second array
 
 
 ### Returns
 
-* `<object>` - object with differences;
-	* `<array>` `common` - common elements to both arrays;
-	* `<array>` `deletions` - elements from first array but not included in second array;
-	* `<array>` `insertions` - elements from second array but not included in first array.
+* *`object`* - object containing differences
+	* **`common`**: *`array`* - elements common to both arrays
+	* **`deletions`**: *`array`* - elements from first array but not present in second array
+	* **`insertions`**: *`array`* - elements from second array but not present in first array
 
 
 Example
 -------
 
 ```js
+// Get differences between arrays:
 const left = [1, 2, 3];
 const right = [3, 4, 5];
 

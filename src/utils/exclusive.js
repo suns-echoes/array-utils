@@ -1,14 +1,14 @@
 /**
- * Method returns new array containing items exclusive to all input arrays.
+ * Method returns new array containing non-intersecting items from input arrays.
  * This method takes at least two arrays.
  * @method exclusive
- * @param {array} ...arrays - list of arrays
+ * @param {...array} arrays - list of arrays
  * @returns {array} - resulting array
  */
 export function exclusive(...arrays) {
 	arrays.forEach((array, index) => {
 		if (!Array.isArray(array)) {
-			throw new TypeError(`The #${index + 1} argument is not an array`);
+			throw new TypeError(`"arrays[${index}]" is not an array`);
 		}
 	});
 
@@ -23,17 +23,13 @@ export function exclusive(...arrays) {
 			.concat(right.filter((item) => !left.includes(item)));
 	}
 	else {
-		const arrs = arrays.map((array) => [...array]);
 		const acc = [];
 
-		arrs.forEach((left) => {
+		arrays.forEach((left) => {
 			left.forEach((item) => {
-				const unique = arrs.every((right) => {
-					return (
-						left === right ||
-						left !== right && !right.includes(item)
-					);
-				});
+				const unique = arrays.every((right) => (
+					left === right || !right.includes(item)
+				));
 
 				if (unique) {
 					acc.push(item);

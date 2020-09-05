@@ -7,7 +7,10 @@ export const config = {
 		},
 		src: {
 			input: 'src',
-			output: 'dist/src',
+			output: {
+				cjs: 'dist/cjs',
+				esm: 'dist/esm',
+			},
 		},
 		docs: {
 			input: 'docs',

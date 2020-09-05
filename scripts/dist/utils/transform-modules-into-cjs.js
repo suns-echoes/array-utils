@@ -7,7 +7,7 @@ import { config } from '../config';
 
 
 export async function transformModulesIntoCJS() {
-	const distPath = config.paths.dist;
+	const distPath = config.paths.src.output.cjs;
 
 	const files = await listFiles(distPath, -1, /\.js$/);
 

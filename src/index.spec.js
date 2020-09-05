@@ -1,7 +1,7 @@
 const fs = require('fs');
 const { promisify } = require('util');
 
-import { ArrayUtils } from './array-utils.js';
+import ArrayUtils from './index.js';
 
 
 const readdir = promisify(fs.readdir);
@@ -12,7 +12,7 @@ const dirPath = 'utils';
 
 
 async function findEntries() {
-	const entities = await readdir(`./src/${dirPath}/`);
+	const entities = await readdir(`./src/${dirPath}`);
 	const matchNonSpecFiles = /^((?!\.spec\.js).)*\.js$/;
 	const entries = [];
 
@@ -37,7 +37,7 @@ async function findEntries() {
 
 
 describe('ArrayUtils', () => {
-	it('has named export for all existing entries', async () => {
+	it('has default export for all existing entries', async () => {
 		const exportedEntries = Object.keys(ArrayUtils);
 		const foundEntries = await findEntries();
 

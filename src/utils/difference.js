@@ -1,14 +1,14 @@
 /**
- * Method returns new array containing items exclusive to first array.
+ * Method returns new array containing items unique to first input array.
  * This method takes at least two arrays.
  * @method difference
- * @param {array} ...arrays - list of arrays
+ * @param {...array} arrays - list of arrays
  * @returns {array} - resulting array
  */
 export function difference(...arrays) {
 	arrays.forEach((array, index) => {
 		if (!Array.isArray(array)) {
-			throw new TypeError(`The #${index + 1} argument is not an array`);
+			throw new TypeError(`"arrays[${index}]" is not an array`);
 		}
 	});
 
@@ -22,12 +22,9 @@ export function difference(...arrays) {
 		return left.filter((item) => !right.includes(item));
 	}
 	else {
-		let acc = arrays.shift();
+		const left = arrays.shift();
+		const right = new Set(Array.prototype.concat(...arrays));
 
-		arrays.forEach((array) => {
-			acc = acc.filter((item) => !array.includes(item));
-		});
-
-		return acc;
+		return left.filter((item) => !right.has(item));
 	}
 }

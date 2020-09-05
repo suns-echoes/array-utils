@@ -2,13 +2,13 @@
  * Method returns new array containing items common to all input arrays.
  * This method takes at least two arrays.
  * @method intersect
- * @param {array} ...arrays - list of arrays
+ * @param {...array} arrays - list of arrays
  * @returns {array} - resulting array
  */
 export function intersect(...arrays) {
 	arrays.forEach((array, index) => {
 		if (!Array.isArray(array)) {
-			throw new TypeError(`The #${index + 1} argument is not an array`);
+			throw new TypeError(`"arrays[${index}]" is not an array`);
 		}
 	});
 
