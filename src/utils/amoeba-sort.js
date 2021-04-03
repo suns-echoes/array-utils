@@ -1,10 +1,9 @@
 /**
- * Method sorts array items, it starts from center and moves to random adjacent elements.
+ * Method sorts input array, it starts from center and moves to random adjacent elements.
  * @method diff
  * @param {array} array - 1D or 2D array to sort
  * @param {number} [width] - this parameter must be specified for 1D array
  * @param {number} [height] - this parameter must be specified for 1D array
- * @param {array} right - second array
  * @returns {array} - 1D sorted array
  */
 export function amoebaSort(array, width = array[0].length, height = array.length) {

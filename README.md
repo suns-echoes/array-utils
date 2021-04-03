@@ -44,6 +44,7 @@ import { diff } from '@suns-echoes/array-utils/esm/utils/diff.js';
 Methods
 -------
 
+* [amoeba-sort](./docs/utils/amoeba-sort.md) - sort array in amoeba grow style
 * [diff](./docs/utils/diff.md) - find differences between arrays
 * [difference](./docs/utils/difference.md) - get items unique to first input array
 * [exclusive](./docs/utils/exclusive.md) - get non-intersecting items from input arrays
@@ -56,4 +57,4 @@ License
 
 Licensed under MIT
 
-Copyright (c) 2020 Aneta Suns
+Copyright (c) 2021 Aneta Suns
