@@ -4,6 +4,7 @@ export function hints() {
 	console.log('╔═══════════════════════════════╗');
 	console.log('║        Reminders:             ║');
 	console.log('╠═══════════════════════════════╣');
+	console.log('║ * update tests                ║');
 	console.log('║ * update package version      ║');
 	console.log('║ * add doc files               ║');
 	console.log('║ * add docjs comments          ║');
