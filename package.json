@@ -10,7 +10,7 @@
     "lint": "eslint .",
     "dist": "node -r esm scripts/dist",
     "release": "npm run dist && cd dist && echo Login to NPM: && npm login && npm publish --access public && npm logout",
-    "release:priv": "npm run dist && cd dist && npm login && npm publish --access restricted && npm logout"
+    "release:priv": "npm run dist && cd dist && echo Login to NPM: && npm login && npm publish --access restricted && npm logout"
   },
   "homepage": "https://github.com/suns-echoes/array-utils",
   "repository": {
