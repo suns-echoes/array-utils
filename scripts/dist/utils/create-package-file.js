@@ -1,6 +1,5 @@
 import fs from 'fs';
 import { promisify } from 'util';
-
 import { config } from '../config';
 
 

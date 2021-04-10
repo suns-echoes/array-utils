@@ -57,7 +57,7 @@
 		"no-undef": "error",
 		"no-unreachable": "error",
 		"no-var": "error",
-		"operator-linebreak": ["error", "after"],
+		"operator-linebreak": ["error", "before"],
 		"padded-blocks": ["error", "never"],
 		"prefer-const": "error",
 		"prefer-rest-params": "error",

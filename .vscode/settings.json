@@ -6,5 +6,6 @@
 	"editor.detectIndentation": false,
 	"editor.renderWhitespace": "all",
 	"editor.rulers": [80, 120],
+	"javascript.preferences.quoteStyle": "single",
 	"javascript.validate.enable": false
 }

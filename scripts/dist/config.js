@@ -3,7 +3,7 @@ export const config = {
 		dist: 'dist',
 		main: {
 			input: 'src/index.js',
-			output: 'dist/index.js',
+			output: 'dist/index.js', // ???
 		},
 		src: {
 			input: 'src',

@@ -1,24 +1,19 @@
-const fs = require('fs');
-const { promisify } = require('util');
-
-import ArrayUtils from './index.js';
-
-
-const readdir = promisify(fs.readdir);
-
-
-const importPath = 'utils';
-const dirPath = 'utils';
+import { listFiles } from '@suns-echoes/file-system-utils/src/utils/list-files';
+import { ArrayUtils } from './array-utils.js';
 
 
 async function findEntries() {
-	const entities = await readdir(`./src/${dirPath}`);
+	process.chdir('src');
+
+	const entities = await listFiles('./utils');
 	const matchNonSpecFiles = /^((?!\.spec\.js).)*\.js$/;
 	const entries = [];
 
+	process.chdir('..');
+
 	for (const entity of entities) {
 		if (matchNonSpecFiles.test(entity)) {
-			const path = `./${importPath}/${entity}`;
+			const path = `./${entity}`;
 			const module = await import(path);
 			const keys = Object.keys(module);
 
@@ -41,6 +36,6 @@ describe('ArrayUtils', () => {
 		const exportedEntries = Object.keys(ArrayUtils);
 		const foundEntries = await findEntries();
 
-		expect(exportedEntries).to.be.eql(foundEntries);
+		expect(exportedEntries.sort()).to.be.eql(foundEntries.sort());
 	});
 });
