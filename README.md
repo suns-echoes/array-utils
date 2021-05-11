@@ -62,4 +62,4 @@ License
 
 Licensed under MIT
 
-Copyright (c) 2021 Aneta Suns
+Copyright (c) 2020-2021 Aneta Suns

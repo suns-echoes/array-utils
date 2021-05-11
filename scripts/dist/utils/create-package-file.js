@@ -1,36 +1,29 @@
-import fs from 'fs';
-import { promisify } from 'util';
+
+import { readTextFile } from '@suns-echoes/file-system-utils/src/utils/read-text-file';
+import { writeTextFile } from '@suns-echoes/file-system-utils/src/utils/write-text-file';
 import { config } from '../config';
 
 
-const readFile = promisify(fs.readFile);
-const writeFile = promisify(fs.writeFile);
-
-
-const whitelist = [
-	'name',
-	'main',
-	'version',
-	'description',
-	'homepage',
-	'repository',
-	'author',
-	'license',
-	'dependencies',
-];
-
-
 export async function createPackageFile() {
-	const pkgFile = await readFile('./package.json', 'utf8');
+	const { copyProps, setProps } = config.createPackageFile;
+	const pkgFile = await readTextFile('./package.json');
 	const pkg = JSON.parse(pkgFile);
 
-	Object.keys(pkg).forEach((key) => {
-		if (!whitelist.includes(key)) {
-			pkg[key] = undefined;
-		}
-	});
+	if (copyProps) {
+		Object.keys(pkg).forEach((key) => {
+			if (!copyProps[key]) {
+				pkg[key] = undefined;
+			}
+		});
+	}
+
+	if (setProps) {
+		Object.keys(setProps).forEach((prop) => {
+			pkg[prop] = setProps[prop];
+		});
+	}
 
 	const data = JSON.stringify(pkg, null, '  ');
 
-	await writeFile(`${config.paths.dist}/package.json`, data, { encoding: 'utf8' });
+	await writeTextFile(`${config.paths.dist}/package.json`, data);
 }

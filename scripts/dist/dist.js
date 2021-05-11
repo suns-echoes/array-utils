@@ -1,8 +1,10 @@
 import { hints } from './utils/hints';
+import { checkForTodos } from './utils/check-for-todos';
 import { runLinter } from './utils/run-linter';
 import { runTypeScriptCompiler } from './utils/run-type-script-compiler';
 import { runTests } from './utils/run-tests';
 import { runAudit } from './utils/run-audit';
+import { checkDocumentationFiles } from './utils/check-cocumentation-files';
 import { cleanup } from './utils/cleanup';
 import { copySourceFiles } from './utils/copy-source-files';
 import { transformModulesIntoCJS } from './utils/transform-modules-into-cjs';
@@ -16,10 +18,12 @@ import { createPackageFile } from './utils/create-package-file';
 
 export const dist = {
 	hints,
+	checkForTodos,
 	runLinter,
 	runTypeScriptCompiler,
 	runTests,
 	runAudit,
+	checkDocumentationFiles,
 	cleanup,
 	copySourceFiles,
 	transformModulesIntoCJS,

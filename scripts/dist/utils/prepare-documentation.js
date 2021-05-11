@@ -1,8 +1,8 @@
+import { join } from 'path';
 import { listFiles } from '@suns-echoes/file-system-utils/src/utils/list-files';
 import { readTextFile } from '@suns-echoes/file-system-utils/src/utils/read-text-file';
 import { writeTextFile } from '@suns-echoes/file-system-utils/src/utils/write-text-file';
 import { config } from '../config';
-import { join } from 'path';
 
 
 function macroUtilFilePath(string, filepath) {

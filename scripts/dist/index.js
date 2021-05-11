@@ -3,7 +3,6 @@ import { dist } from './dist';
 
 async function runDist() {
 	/* eslint-disable no-console */
-
 	const only = process.argv.slice(2);
 	const skipParams = only.length === 0;
 
@@ -13,6 +12,8 @@ async function runDist() {
 		console.log('');
 
 		dist.hints();
+
+		await dist.checkForTodos();
 	}
 
 	if (skipParams || only.includes('-cleanup')) {
@@ -40,6 +41,11 @@ async function runDist() {
 		await dist.runAudit();
 	}
 
+	if (skipParams || only.includes('-docs')) {
+		console.log(' - Check for missing documentation files');
+		await dist.checkDocumentationFiles();
+	}
+
 	if (skipParams || only.includes('-transform')) {
 		console.log(' - Copy source files');
 		await dist.copySourceFiles();
@@ -55,9 +61,6 @@ async function runDist() {
 		console.log(' - Cleanup dist tests');
 		await dist.cleanupDistTests();
 	}
-
-	// console.log(' - Check for missing documentation files');
-	// await dist.checkForMissingDocumentationFiles();
 
 	if (skipParams || only.includes('-docs')) {
 		console.log(' - Prepare documentation files');
@@ -77,7 +80,7 @@ async function runDist() {
 		await dist.createPackageFile();
 	}
 
-	console.log('');
+	console.log('\nDist ready.\n');
 
 	/* eslint-enable no-console */
 }
